@@ -30,7 +30,7 @@ public class LootScreen : MonoBehaviour {
     private void OnEnable()
     {
         score = 0;
-        scoreText.text = "0";
+        scoreText.text = "0 exp";
         spaceText.enabled = false;
         timeSlider.value = 1;
         timeSlider.gameObject.SetActive(false);
@@ -72,6 +72,17 @@ public class LootScreen : MonoBehaviour {
         }
 
         yield return new WaitForSeconds(3.0f);
+
+        float waitTime = 3.0f;
+
+        while(waitTime > 0)
+        {
+            mainText.text = waitTime.ToString();
+            StartCoroutine(PopObject(mainText.gameObject, 2.0f, 0.8f));
+            waitTime--;
+            yield return new WaitForSeconds(1.0f);
+        }
+
         mainText.text = "GO!";
 
         spaceText.enabled = true;
@@ -91,7 +102,7 @@ public class LootScreen : MonoBehaviour {
                     StartCoroutine(PopObject(rewardImage.gameObject, 1.5f, 0.5f));
                     rewardWon = true;
                 }
-                scoreText.text = score.ToString();
+                scoreText.text = score.ToString() + " exp";
             }
 
             timeSlider.value = time / spamTime;

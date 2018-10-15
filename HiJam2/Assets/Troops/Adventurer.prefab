@@ -520,8 +520,8 @@ MonoBehaviour:
   _experience: 0
   _maxHealth: 10
   _health: 10
-  attackSpeed: 0.4
-  attackDamage: 2
+  attackSpeed: 0.3
+  attackDamage: 1.5
   woundedColor: {r: 1, g: 0, b: 0, a: 1}
   target: {fileID: 0}
   healthSlider: {fileID: 114830850870393502}

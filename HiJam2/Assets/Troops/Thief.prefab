@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 199073270721112098}
   - component: {fileID: 82632882532489238}
   m_Layer: 0
-  m_Name: Wizard
+  m_Name: Thief
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -328,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 1231803148460480}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cdb09fe5f0fedce44b43da2650afe7c9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 314165cdbc88f1a4ca96cd6e542ec8a4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -515,19 +515,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerControlled: 0
-  _troopName: Wizard
+  _troopName: Thief
   _level: 1
   _experience: 0
   _maxHealth: 8
   _health: 8
-  attackSpeed: 0.22
-  attackDamage: 4
+  attackSpeed: 0.35
+  attackDamage: 0.7
   woundedColor: {r: 1, g: 0, b: 0, a: 1}
   target: {fileID: 0}
   healthSlider: {fileID: 114830850870393502}
   energySlider: {fileID: 114042237054627936}
-  attackSound: {fileID: 8300000, guid: 582067e3525912c44b3a54e2661e8ef0, type: 3}
-  deathSound: {fileID: 8300000, guid: 03302fbac5fb4864e97478bcc8ca3a94, type: 3}
+  attackSound: {fileID: 8300000, guid: 4902e4c5f6326b64b87b2ccbf99e7597, type: 3}
+  deathSound: {fileID: 8300000, guid: 379eafb19d0ebaf41ab3c862e3d7c9b0, type: 3}
   graphic: {fileID: 212312558832822750}
   particles: {fileID: 198303117993780956}
   isAlive: 1
@@ -5288,7 +5288,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3d0b45cbcdb11b41881996068dd8be9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a091473377581794396b7df1c490cbf3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -139,9 +139,9 @@ GameObject:
   - component: {fileID: 95692473260776568}
   - component: {fileID: 198303117993780956}
   - component: {fileID: 199073270721112098}
-  - component: {fileID: 82632882532489238}
+  - component: {fileID: 82029469419381820}
   m_Layer: 0
-  m_Name: Wizard
+  m_Name: Dark Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,8 +202,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265893213219202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.79, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: 1.41, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4442686137072834}
   m_RootOrder: 0
@@ -215,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1231803148460480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 0, z: -8.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4412470803059296}
@@ -223,7 +223,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &82632882532489238
+--- !u!82 &82029469419381820
 AudioSource:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,7 +328,7 @@ Animator:
   m_GameObject: {fileID: 1231803148460480}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cdb09fe5f0fedce44b43da2650afe7c9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 14635a8b8086ed4459c7e9f5d703cc70, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -515,19 +515,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerControlled: 0
-  _troopName: Wizard
+  _troopName: Dark Wizard
   _level: 1
   _experience: 0
-  _maxHealth: 8
-  _health: 8
-  attackSpeed: 0.22
-  attackDamage: 4
+  _maxHealth: 7
+  _health: 7
+  attackSpeed: 0.05
+  attackDamage: 2.8
   woundedColor: {r: 1, g: 0, b: 0, a: 1}
   target: {fileID: 0}
   healthSlider: {fileID: 114830850870393502}
   energySlider: {fileID: 114042237054627936}
-  attackSound: {fileID: 8300000, guid: 582067e3525912c44b3a54e2661e8ef0, type: 3}
-  deathSound: {fileID: 8300000, guid: 03302fbac5fb4864e97478bcc8ca3a94, type: 3}
+  attackSound: {fileID: 8300000, guid: 343110c49d998fe4bbddbc20ff4672bf, type: 3}
+  deathSound: {fileID: 8300000, guid: 62300d02c403b914f83297ea0dd27777, type: 3}
   graphic: {fileID: 212312558832822750}
   particles: {fileID: 198303117993780956}
   isAlive: 1
@@ -792,7 +792,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.7254902, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.5566038, g: 0, b: 0.4388576, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5288,7 +5288,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d3d0b45cbcdb11b41881996068dd8be9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cde2484175edf9946a5c8acacdc72904, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5422,7 +5422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.5}
+  m_AnchoredPosition: {x: 0, y: 2.28}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224441956252667940

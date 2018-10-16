@@ -52,7 +52,7 @@ public class ComputerPlayer : Player {
             troops.Add(t);
         }
 
-        int totalExpToDole = (int)(((GameManager.Instance.CurrentRound - 1) * GameManager.Instance.CurrentRound) * 0.5f) * Troop.EXP_PER_LEVEL;
+        int totalExpToDole = (int)(((GameManager.Instance.CurrentRound - 1) * GameManager.Instance.CurrentRound) * 0.66f) * Troop.EXP_PER_LEVEL;
         int expToDole;
         foreach(Troop t in troops)
         {

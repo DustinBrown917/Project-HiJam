@@ -74,6 +74,8 @@ public class Troop : MonoBehaviour {
 
     private void HandlePlayerAttack()
     {
+        if(GameManager.Instance.CurrentState != GameStates.BATTLING) { return; }
+
         currentAttackCharge += attackSpeed * PLAYER_CONTROL_SPEED_MULT;
         energySlider.value = currentAttackCharge / AttackTime;
         if(energySlider.value >= 1.0f)

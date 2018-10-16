@@ -13,6 +13,10 @@ public class GameMenu : MonoBehaviour {
     [SerializeField] private GameObject lootScreen;
     [SerializeField] private GameObject gameOverScreen;
 
+    [SerializeField] private AudioClip victoryMusic;
+    [SerializeField] private AudioClip defeatMusic;
+
+    private AudioSource audioSource;
     private HumanPlayer humanPlayer;
     private GameObject activeScreen;
     private bool waitingForPlayerToProgress = true;
@@ -26,10 +30,12 @@ public class GameMenu : MonoBehaviour {
             return;
         }
         _instance = this;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Use this for initialization
     void Start () {
+        
         humanPlayer = (HumanPlayer)GameManager.Instance.HumanPlayer;
         GameManager.Instance.GameStateChanged += GameManager_GameStateChanged;
         lootScreen.GetComponent<LootScreen>().ExperienceEventDone += GameMenu_ExperienceEventDone;
@@ -47,9 +53,11 @@ public class GameMenu : MonoBehaviour {
         {
             if(humanPlayer.CurrentPartySize > 0)
             {
+                MusicPlayer.Instance.PlayOnce(victoryMusic);
                 SetActiveScreen(victoryScreen);
             } else
             {
+                MusicPlayer.Instance.PlayOnce(defeatMusic);
                 SetActiveScreen(gameOverScreen);
             }
             
@@ -66,6 +74,7 @@ public class GameMenu : MonoBehaviour {
             {
                 if (activeScreen == victoryScreen)
                 {
+                    
                     SetActiveScreen(lootScreen);
                     waitingForPlayerToProgress = false;
                 }
@@ -76,6 +85,7 @@ public class GameMenu : MonoBehaviour {
                 }
                 else if(activeScreen == gameOverScreen)
                 {
+                    
                     GameManager.Instance.ResetRoundCount();
                     SetActiveScreen(gameMenuScreen);
                 }
@@ -102,6 +112,7 @@ public class GameMenu : MonoBehaviour {
             activeScreen.SetActive(false);
         }
 
+        audioSource.Play();
 
         activeScreen = screen;
 

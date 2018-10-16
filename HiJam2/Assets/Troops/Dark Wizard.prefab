@@ -526,8 +526,8 @@ MonoBehaviour:
   target: {fileID: 0}
   healthSlider: {fileID: 114830850870393502}
   energySlider: {fileID: 114042237054627936}
-  attackSound: {fileID: 8300000, guid: 343110c49d998fe4bbddbc20ff4672bf, type: 3}
-  deathSound: {fileID: 8300000, guid: 62300d02c403b914f83297ea0dd27777, type: 3}
+  attackSound: {fileID: 8300000, guid: 8500a6139ab6fb748a4e92aab01e6ca9, type: 3}
+  deathSound: {fileID: 8300000, guid: a72a081dcc1d996449499ba85f8a1df2, type: 3}
   graphic: {fileID: 212312558832822750}
   particles: {fileID: 198303117993780956}
   isAlive: 1

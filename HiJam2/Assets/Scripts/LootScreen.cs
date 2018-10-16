@@ -17,14 +17,21 @@ public class LootScreen : MonoBehaviour {
     [SerializeField] private Sprite timesTwoSprite;
     [SerializeField] private float spamTime = 10;
     [SerializeField] private int clicksForReward = 60;
+    [SerializeField] private AudioClip countDownSound;
+    [SerializeField] private AudioClip spaceBarSound;
+    [SerializeField] private AudioClip timeUpWin;
+    [SerializeField] private AudioClip timeUpLose;
+    [SerializeField] private AudioClip spamMusic;
 
     private Image sliderImage;
     private HumanPlayer humanPlayer;
     private int score = 0;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         sliderImage = timeSlider.GetComponentInChildren<Image>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -71,12 +78,15 @@ public class LootScreen : MonoBehaviour {
             rewardImage.sprite = timesTwoSprite;
         }
 
-        yield return new WaitForSeconds(3.0f);
+        audioSource.clip = countDownSound;
+
+        yield return new WaitForSeconds(1.5f);
 
         float waitTime = 3.0f;
 
         while(waitTime > 0)
         {
+            audioSource.Play();
             mainText.text = waitTime.ToString();
             StartCoroutine(PopObject(mainText.gameObject, 2.0f, 0.8f));
             waitTime--;
@@ -85,15 +95,18 @@ public class LootScreen : MonoBehaviour {
 
         mainText.text = "GO!";
 
+        MusicPlayer.Instance.Play(spamMusic);
+
         spaceText.enabled = true;
         timeSlider.gameObject.SetActive(true);
-
+        audioSource.clip = spaceBarSound;
         float time = spamTime;
         while(time > 0)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 score++;
+                audioSource.Play();
                 StartCoroutine(PopObject(scoreText.gameObject, 1.3f, 0.3f, Vector3.one));
                 rewardSlider.value = (float)score / (float)clicksForReward;
                 if(rewardSlider.value == 1.0f && !rewardWon)
@@ -116,20 +129,27 @@ public class LootScreen : MonoBehaviour {
         }
 
         mainText.text = "Done!";
+        MusicPlayer.Instance.ReturnToDesired();
         spaceText.enabled = false;
         timeSlider.gameObject.SetActive(false);
 
         if (rewardSlider.value >= 1)
         {
+            audioSource.clip = timeUpWin;
             if (humanPlayer.CurrentPartySize < Player.MAX_PARTY_SIZE)
             {
+                
+                audioSource.Play();
                 GameMenu.Instance.GiveNewPartyMember = true;
             }
             else
             {
                 score *= 2;
-                scoreText.text = score.ToString();
+                scoreText.text = score.ToString() + " exp";
             }
+        } else
+        {
+            audioSource.clip = timeUpLose;
         }
 
         yield return new WaitForSeconds(1.0f);
@@ -144,10 +164,7 @@ public class LootScreen : MonoBehaviour {
 
         yield return new WaitForSeconds((Time.deltaTime * score) + 1.0f);
 
-
-
         OnExperienceEventDone();
-
     }
 
     private IEnumerator PopObject(GameObject obj, float popSize, float popTime)
